@@ -45,7 +45,7 @@ const Courses = () => {
                         <div>
                             <h4 className='Title'>CERTIFIED SPECIALIST IN DATA SCIENCE & ANALYTICS</h4>
                             <p className='Para'>Data Science and Analytics are amongst the Top 5 IT Jobs . One of the worlds famous tech group, CIO.com predicts that the skills around Data Science will remain as popular for the next few years.</p>
-                            {/* <a href="#">Read  more</a> */}
+                            
                         </div>
                     </div>
                     <div className='Card'>
