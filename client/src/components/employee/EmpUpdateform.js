@@ -27,7 +27,7 @@ function EmpUpdateform(props) {
         </form>
             
       </div> 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

@@ -33,7 +33,7 @@ function EmployeeUpdate() {
       ))}
         
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

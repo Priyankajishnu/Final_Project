@@ -100,7 +100,7 @@ router.post('/employeelogin',async(req,res)=>{
             
                 if(err) console.log(err);
                 else{
-                    return res.json({message:"User Logged In",token:token});
+                    return res.json({message:"Employee Logged In",token:token});
                 }
             });
         }
@@ -131,7 +131,7 @@ router.post('/studentlogin',async(req,res)=>{
             
                 if(err) console.log(err);
                 else{
-                    return res.json({message:"User Logged In",token:token});
+                    return res.json({message:"Student Logged In",token:token});
                 }
             });
         }
