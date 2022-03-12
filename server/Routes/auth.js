@@ -154,12 +154,12 @@ const adminuser = [
         password:"admin123",
         isAdmin:true,
     },
-    {
-        id:"2",
-        username:'user',
-        password:'user123',
-        isAdmin:false,
-    }
+    // {
+    //     id:"2",
+    //     username:'user',
+    //     password:'user123',
+    //     isAdmin:false,
+    // }
 ];
 router.post('/adminlogin',(req,res)=>{
     const{username,password} = req.body.data;
@@ -178,7 +178,7 @@ router.post('/adminlogin',(req,res)=>{
         res.status(400).json("Username or password incorrect")
     }
 });
-
+//middleware for admin
 const adminverify = (req,res,next)=>{
    
     if(req.headers.authorization){

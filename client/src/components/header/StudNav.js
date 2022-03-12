@@ -13,7 +13,7 @@ const StudNav = () => {
      
                 <Nav className="me-auto">
                     <Nav.Link href="/courses">COURSES</Nav.Link> 
-                    <Nav.Link href="/stud-profile">PROFILE</Nav.Link>
+                    {/* <Nav.Link href="/stud-profile">PROFILE</Nav.Link> */}
                     <Nav.Link href="/">LOGOUT</Nav.Link>
                 </Nav>
         

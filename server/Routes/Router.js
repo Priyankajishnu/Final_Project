@@ -124,35 +124,35 @@ router.delete('/api/delete-stud', async (req, res) => {
     }
 });
 
-//Approve employee
-router.post('/api/approve-employee',(req,res)=>{
+// //Approve employee
+// router.post('/api/approve-employee',(req,res)=>{
     
-    employeeModel.updateOne(
-        { 
-            _id: req.body.id 
-        },
-        {
-            $set: { 'status': 'approved'} 
-        }).then((employee)=>{
-            employeeModel.findOne({_id:req.body.id},function(err,employee){ 
-                employeeMail(employee.email).then((response)=>{
-                    console.log(response);
-                    res.send();
-                })
-            })
-        })
-})
+//     employeeModel.updateOne(
+//         { 
+//             _id: req.body.id 
+//         },
+//         {
+//             $set: { 'status': 'approved'} 
+//         }).then((employee)=>{
+//             employeeModel.findOne({_id:req.body.id},function(err,employee){ 
+//                 employeeMail(employee.email).then((response)=>{
+//                     console.log(response);
+//                     res.send();
+//                 })
+//             })
+//         })
+// })
     
 
-//Decline employee
-router.delete('/api/reject-employee/:id',(req,res)=>{  
-    id = req.params.id;
-    employeeModel.findByIdAndDelete({_id:id})
-    .then(()=>{
-        console.log('success')
-        res.send();
-    })
-});   
+// //Decline employee
+// router.delete('/api/reject-employee/:id',(req,res)=>{  
+//     id = req.params.id;
+//     employeeModel.findByIdAndDelete({_id:id})
+//     .then(()=>{
+//         console.log('success')
+//         res.send();
+//     })
+// });   
 
 //Update employee
     router.post('/api/edit-emp/:id', async (req, res) => {

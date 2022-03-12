@@ -46,11 +46,13 @@ const StudentLogin=(props)=>{
       response=>{    
         if(response.data.token) Cookies.set('studentkey',response.data.token);      
         // console.log(response.data.token)
+        // navigate("/studhome")
       }
     );
     registers.map((i,key)=>{
       if((i.email === userData.email) && (i.password === userData.password) ){
         setIssubmit(true);
+        
       }
     })
   }
@@ -59,6 +61,7 @@ const StudentLogin=(props)=>{
     if(Object.keys(errorvalues).length===0 && issubmit){
 
        alert("login successfully");
+      
     }
   },[errorvalues]);
 
