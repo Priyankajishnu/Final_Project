@@ -32,6 +32,7 @@ router.post('/studentregister',async(req,res)=>{
                     employmentStatus:employmentStatus,
                     technologyTraining:technologyTraining,
                     payment:payment,
+                    // studid:studid,
                     // image:image,
                     course:course,
                 });
@@ -61,7 +62,8 @@ router.post('/employeeregister',async(req,res)=>{
                     email:email,
                     password:password,
                     name:name,
-                    role:role
+                    role:role,
+                    // status:status
                 });
                 newUser.save();
                 return res.json({message:"User Created",newUser})
@@ -116,7 +118,7 @@ router.post('/employeelogin',async(req,res)=>{
 
 //student Login
 router.post('/studentlogin',async(req,res)=>{
-    const{email,password} =req.body;
+    const{email,password} =req.body.data;
     if(!email || !password)
         return res.json({message:"Invalid Credentials"});
     

@@ -43,7 +43,7 @@ router.get('/api/search-student', async(req,res)=>{
 //getAll employee
 router.get('/api/employee', async(req,res)=>{
      
-    employeeModel.find({status:"approved"})
+    employeeModel.find({status:"Approved"})
      .then(function(employee){
          res.send(employee);
      });

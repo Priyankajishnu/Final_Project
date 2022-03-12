@@ -19,7 +19,7 @@ app.use((req,res,next)=>{
 
 //Routes
 app.use('/auth' , require('./Routes/auth'));
-app.use('/Router', require('./Routes/Router'));
+app.use('/routes', require('./Routes/routes'));
 
 //MongoDB Atlas connection
 mongoose.connect("mongodb+srv://priyanka:priyanka@cluster0.rutr8.mongodb.net/finalProject?retryWrites=true&w=majority");

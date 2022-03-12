@@ -6,6 +6,7 @@ import axios from 'axios';
 // import StudentProfile from './student-profile';
 import allstudents from './StudentDB';
 
+
 const AllStudents = () => {
   const[students,setStudents]=useState([])
 
@@ -16,7 +17,7 @@ const AllStudents = () => {
   },[]);
 
   const fetchapi=async()=>{      
-    const response=await axios.get('http://localhost:5000/Router/api/students')
+    const response=await axios.get('http://localhost:5000/routes/api/students')
     console.log(response.data);
     setStudents(response.data)
   }
@@ -24,7 +25,7 @@ const AllStudents = () => {
   function deleteStudData(event){
      
     console.log(event.target.getAttribute("name"))
-    axios.delete(`http://localhost:5000/Router/api/delete-stud`, { id: event.target.getAttribute("name") })
+    axios.delete(`http://localhost:5000/routes/api/delete-stud`, { id: event.target.getAttribute("name") })
       .then((res) => {
         alert("Successfully Deleted");
         navigate("../students", { replace: true })

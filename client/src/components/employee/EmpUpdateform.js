@@ -1,33 +1,72 @@
 
 import React,{useState,useEffect} from 'react';
-import { useParams } from 'react-router-dom';
-import Footer from '../footer/Footer';
-import AdminNav from '../header/AdminNav';
-import employeeupdate from './Employeedb';
+import { useParams,useNavigate } from 'react-router-dom';
+//import employeeupdate from './Employeedb';
 import './EmployeeUpdateform.css';
+import axios from 'axios';
+import AdminNav from '../header/AdminNav';
+
 
 function EmpUpdateform(props) {
 
-    const [data,setData]=useState([]);
-    const {name} =useParams();
+    const {id} =useParams();
+    const navigate=useNavigate();
 
-    const employee=employeeupdate.find(i=>i.empname===name);
+    const [employeeEdit,setemployeeEdit]=useState({name:'', role:'', email:''});
+   
+
+    const{name,role,email}=employeeEdit;
+
+    useEffect(async()=>{
+        await loadEmpData();
+    },[])
+
+    const loadEmpData=async()=>{
+        const response=await axios.get(`http://localhost:5000/routes/api/employee/${id}`)
+        setemployeeEdit(response.data);
+    }
+
+    const editData=async()=>{
+        await axios.post(`http://localhost:5000/routes/api/edit-emp/${id}`, employeeEdit)
+        .then((res)=>{
+            alert ("successfully updated")
+            navigate('../emp-update',{replace:true})
+        })
+        
+    }
+
+    const handleChange=(e)=>{
+        console.log(e.target.value);
+        setemployeeEdit({...employeeEdit,[e.target.name]:e.target.value})
+        console.log(employeeEdit);
+
+    }
+
+    const handleSubmit=async(e)=>{
+       await e.preventDefault();
+    }
 
   return (
-    <div>
-      <AdminNav/>
-      <div className='empform'>
-        <h1 style={{marginBottom:'15px',fontFamily:'sans-serif',fontWeight:'bold'}} >Edit Details</h1>
-        
-        <form action="" className='container1'>
-          <input type="text" placeholder='empname' value={employee.empname}/> <br /><br />
-          <input type="text" placeholder='role' value={employee.role}/> <br /><br />
-          <input type="text" placeholder='emailid' value={employee.emailid}/> <br /><br />
-          <button className='update'>Update</button> <br /><br />
-        </form>
+      <div>
+          <AdminNav />
+      
+    <div className='empform'>
+       
+        <h3 style={{marginBottom:'15px',marginLeft:'30px',fontFamily:'sans-serif',fontWeight:'bold'}} >EDIT DETAILS</h3>
             
-      </div> 
-      {/* <Footer /> */}
+                <form onSubmit={handleSubmit} className='container1'>
+                <input type="text" placeholder='empname' onChange={(e)=>handleChange(e)} name='name' value={name}/> <br /><br />
+                <input type="text" placeholder='role'   onChange={(e)=>handleChange(e)} name='role' value={role}/> <br /><br />
+                <input type="text" placeholder='emailid'   onChange={(e)=>handleChange(e)} name='email' value={email} /> <br /><br />
+                
+                <button className='update' onClick={editData}>Update</button> <br /><br />
+                </form>
+          
+            
+            
+            
+           
+                </div>
     </div>
   )
 }
