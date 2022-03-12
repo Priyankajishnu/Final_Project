@@ -8,7 +8,7 @@ const employeeModel = require('../model/employeeModel');
 router.post('/studentregister',async(req,res)=>{
     try{
         const {name,email,password,phonenumber,address,qualification,passout,skillset,employmentStatus,technologyTraining,
-        payment,course} = req.body;
+        payment,course} = req.body.data;
         
         if(!name || !email || !password ||!phonenumber||!address||!qualification||!passout||!skillset||!employmentStatus||!technologyTraining||!payment||!course)
 
@@ -118,7 +118,7 @@ router.post('/employeelogin',async(req,res)=>{
 
 //student Login
 router.post('/studentlogin',async(req,res)=>{
-    const{email,password} =req.body;
+    const{email,password} =req.body.data;
     console.log(req.body);
     if(!email || !password)
         return res.json({message:"Invalid Credentials"});

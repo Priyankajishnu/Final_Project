@@ -25,25 +25,25 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function StudentProfile() {
 
-  const[data,setData]=useState([]);
-  const {id}=useParams
+  // const[data,setData]=useState([]);
+  // const {id}=useParams
 
-  useEffect(() => {
-    async function fetchData(){
-      await loadData();
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData(){
+  //     await loadData();
+  //   }
+  //   fetchData();
+  // }, []);
 
-  const loadData=async()=>{
-    const response=await axios.get(`http://localhost:5000/Router/api/students/${id}`)
-    .then((response)=>{
-      setData(data=response.data.find(i=>i._id===id));
-      console.log(data.content)
-    })
+  // const loadData=async()=>{
+  //   const response=await axios.get(`http://localhost:5000/Router/api/students/${id}`)
+  //   .then((response)=>{
+  //     setData(data=response.data.find(i=>i._id===id));
+  //     console.log(data.content)
+  //   })
     //console.log(response.data);
     //setData(response.data)
-  }
+  // }
 
    return ( 
      <div>
@@ -53,24 +53,24 @@ export default function StudentProfile() {
           {/* <Box className='heading1'><h1 style={{color:'violet'}}>STUDENT DETAILS</h1></Box> */}
           <div className='profile' >
             <>
-              {data.map((i,key)=>{
+              {/* {data.map((i,key)=>{ */}
               <Box id='box'>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                   <Grid item xs={2}>
                     <Item>
-                      <img src={i.image} alt='imge' style={{width:'10em',height:'10em',borderRadius:'12em',padding:'2em'}}/>
+                      <img src={""} alt='imge' style={{width:'10em',height:'10em',borderRadius:'12em',padding:'2em'}}/>
                       <div id='contact'>
-                        <p>Student Id:{i.studid}</p>
-                        <p>Name:{i.name}</p>
-                        <p>email:{i.email}</p>
-                        <p>Phone:{i.phone}</p>
+                        <p>Student Id:</p>
+                        <p>Name:</p>
+                        <p>email:</p>
+                        <p>Phone:</p>
                       </div>
                     </Item>
                   </Grid>
                   <Grid item xs={8}>
                     <Item >
                       <div id='item1'>
-                        <Link to={``}><button id='update'>Update</button></Link>
+                        {/* <Link to={``}><button id='update'>Update</button></Link> */}
                         <p id='GI'>General Information</p>
                         <hr/>
                         <hr/>
@@ -78,25 +78,25 @@ export default function StudentProfile() {
                       <div id='content'>
                         <div id='left'>Address</div>
                         <div>:</div>
-                        <div>{i.address}</div>
+                        <div></div>
                         <div id='left'>Qualification</div>
                         <div>:</div>
-                        <div>{i.qualification}</div>
+                        <div></div>
                         <div id='left'>Passout year</div>
                         <div>:</div>
-                        <div>{i.passout}</div>
+                        <div></div>
                         <div id='left'>Technology Training</div>
                         <div>:</div>
-                        <div>{i.technologyTraining}</div>
+                        <div></div>
                         <div id='left'>Skills</div>
                         <div>:</div>
-                        <div>#</div>
-                        <div id='left'>Employment Status</div>
+                        <div></div>
+                        <div id='left'></div>
                         <div>:</div>
-                        <div>{i.employmentStatus}</div>
+                        <div></div>
                         <div id='left'>Course</div>
                         <div>:</div>
-                        <div>{i.course}</div>
+                        <div></div>
                       </div>
                     </Item>
                     <br/>
@@ -109,7 +109,7 @@ export default function StudentProfile() {
                       <div id='content'>
                         <div id='left'>Exit-exam Mark</div>
                         <div>:</div>
-                        <div>{i.mark}</div>
+                        <div></div>
                       </div>
                     </Item>
                   </Grid>

@@ -7,7 +7,7 @@ const { route } = require('express/lib/router');
 
 //getAll students
 router.get('/api/students', async(req,res)=>{
-    studentModel.find({payment:"Successful"})
+    studentModel.find()
      .then(function(student){
          res.send(student);
      });
@@ -34,7 +34,7 @@ router.get('/api/students/:id',(req,res)=>{
 //Search student
 router.get('/api/search-student', async(req,res)=>{
    
-    studentModel.find({payment:"Succesful"})
+    studentModel.find()
      .then(function(student){
          res.send(student);
      });
@@ -43,14 +43,14 @@ router.get('/api/search-student', async(req,res)=>{
 //getAll employee
 router.get('/api/employee', async(req,res)=>{
      
-    employeeModel.find({status:"Approved"})
+    employeeModel.find()
      .then(function(employee){
          res.send(employee);
      });
 });
 
 //Get single employee by id
-router.get('/api/employee/:id',(req,res)=>{ 
+router.get('/api/employee/:_id',(req,res)=>{ 
 
     try{
         const id=req.params.id;
@@ -66,7 +66,7 @@ router.get('/api/employee/:id',(req,res)=>{
 
 //Search employee
 router.get('/api/search-employee', async(req,res)=>{
-    employeeModel.find({status:"approved"})
+    employeeModel.find()
      .then(function(employee){
          res.send(employee);
      });
