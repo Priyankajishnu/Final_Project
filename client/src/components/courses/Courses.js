@@ -37,7 +37,7 @@ const Courses = () => {
                         <div>
                             <h4 className='Title'>CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT</h4>
                             <p className='Para'>The MERN stack is an excellent choice for web developers who wish to develop high-quality web applications using JavaScript. The core technologies define the MERN stack – MongoDB, Express.js, React, and Node.js – all are based on one language, Javascript.</p>
-                            {/* <a href="#">Read  more</a> */}
+                          
                         </div>
                     </div>
                     <div className='Card'>
