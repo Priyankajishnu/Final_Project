@@ -35,7 +35,7 @@ function AdminLogin(props) {
         await axios.post("http://localhost:5000/auth/adminlogin",{data:formValues})
         .then(
             response=>{    
-                if(response.data.accessToken) Cookies.set('adminKey',response.data.accessToken);      
+                if(response.data.accessToken) Cookies.set(process.env.SECRET_KEY,response.data.accessToken);      
                 console.log(response.data.token)
 			}
 		);

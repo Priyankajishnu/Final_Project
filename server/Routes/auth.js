@@ -8,7 +8,7 @@ const employeeModel = require('../model/employeeModel');
 router.post('/studentregister',async(req,res)=>{
     try{
         const {name,email,password,phonenumber,address,qualification,passout,skillset,employmentStatus,technologyTraining,
-        payment,course} = req.body.data;
+        payment,course} = req.body;
         
         if(!name || !email || !password ||!phonenumber||!address||!qualification||!passout||!skillset||!employmentStatus||!technologyTraining||!payment||!course)
 
@@ -118,7 +118,8 @@ router.post('/employeelogin',async(req,res)=>{
 
 //student Login
 router.post('/studentlogin',async(req,res)=>{
-    const{email,password} =req.body.data;
+    const{email,password} =req.body;
+    console.log(req.body);
     if(!email || !password)
         return res.json({message:"Invalid Credentials"});
     
@@ -170,7 +171,7 @@ router.post('/adminlogin',(req,res)=>{
     });
     if(aduser){
        //generate accesstoken
-       const accessToken = jwt.sign({id:aduser.id,isAdmin:aduser.isAmdin},"adminKey",{expiresIn:"1d"});
+       const accessToken = jwt.sign({id:aduser.id,isAdmin:aduser.isAmdin},process.env.SECRET_KEY,{expiresIn:"1d"});
        res.json({
            username:aduser.username,
            isAdmin:aduser.isAdmin,
@@ -185,7 +186,7 @@ const adminverify = (req,res,next)=>{
    
     if(req.headers.authorization){
         const token = req.headers.authorization.split(' ')[1];
-        jwt.verify(token,'adminKey',(err,aduser)=>{
+        jwt.verify(token,process.env.SECRET_KEY,(err,aduser)=>{
             if(!aduser)
             return res.json({message:"User not authenticated"});
             else next();
