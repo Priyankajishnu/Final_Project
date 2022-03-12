@@ -66,6 +66,7 @@ const EmpApprove = () => {
         </>
         ))}
       </div>
+      <br></br><br></br>
       <Footer />
     </div>
   )
